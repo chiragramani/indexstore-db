@@ -484,12 +484,12 @@ bool SymbolIndexImpl::foreachSymbolInFilePath(CanonicalFilePathRef filePath,
                                                                   SymbolInfo info,
                                                                   SymbolRoleSet roles,
                                                                   SymbolRoleSet relatedRoles) -> bool {
-
-                      if (roles.containsAny(SymbolRoleSet(SymbolRole::Definition) | SymbolRole::Declaration)) {
-                        return Receiver(std::make_shared<Symbol>(info, name, usr));
-                      } else {
-                        return true;
-                      }
+                      return Receiver(std::make_shared<Symbol>(info, name, usr));
+                      // if (roles.containsAny(SymbolRoleSet(SymbolRole::Definition) | SymbolRole::Declaration)) {
+                      //   return Receiver(std::make_shared<Symbol>(info, name, usr));
+                      // } else {
+                      //   return true;
+                      // }
                     });
 
                     return false;
